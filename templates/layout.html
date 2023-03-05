@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="static\css\bootstrap.min.css">
+   
+    <title>Document</title>
+
+    <style>
+
+        body{
+            padding-top: 60px;
+        }
+        .tr-head{background: red;}
+        .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        }
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #ffffff;
+}
+    </style>
+ <link rel="stylesheet" href="static\css\bootstrap-responsive.min.css">
+</head>
+<body>
+
+    <div class="navbar navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="">
+                    UTL-IDGS802
+                </a>
+                <ul class="nav">
+                    <li><a  href="">
+                    <i class="icon-home icon-white"></i>
+                        INICIO</a>
+                    </li>
+                    <li><a  href="">
+                        <i class="icon-user icon-white"></i>
+                            Usuarios</a>
+                        </li>
+                    <li><a  href="">
+                            <i class="icon-user icon-white"></i>
+                            Alumnos</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!--QUE IMPRIMA EL MENSAJE SI TODO FUE CORRECTO Y VA RECORRIENDO LA LISTA CON ELL FOR-->
+        {%with messages=get_flashed_messages()%}
+        {%if messages%}
+           {%for message in messages%}
+           <div class="alert alert-success">
+                {{message}}
+           </div>
+           {%endfor%}
+        {%endif%}
+        {%endwith%}
+
+        {%block content%}
+        
+        {%endblock%}
+    </div>
+
+
+<!--
+  <h1>Hola Mundo</h1>
+    <h2>{{titulo}}</h2>
+
+    {%for item in lista%}
+        <h3>{{item}}</h3>
+    {%endfor%}
+-->  
+</body>
+</html>

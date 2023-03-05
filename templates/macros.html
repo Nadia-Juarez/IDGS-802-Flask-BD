@@ -1,0 +1,41 @@
+{% macro render_field(field) %}
+  <label>{{ field.label }}</label>
+  {% if field.type in ['SelectField'] %}
+    {{ field(**{'class': 'form-control'}) }}
+  {% elif field.type in ['RadioField'] %}
+    <div class="radio">
+      {% for subfield in field %}
+        <label>{{ subfield }} {{ subfield.label }}</label>
+      {% endfor %}
+    </div>
+  
+    {% else %}
+    {{ field(**{'class': 'form-control', 'autocomplete': 'off'}) }}
+  {% endif %}
+  {% if field.errors %}
+    <ul class=errors>
+      {% for error in field.errors %}
+        <li style="color: red;">{{ error }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% macro render_field1(field)%}
+    <div class="control-group">
+        <div class="controls">
+            {{field.label}}
+            {{field(**kwargs)|safe}}
+        </div>
+    </div>
+        {%if field.errors%}
+        <ul>
+            {%for error in field.errors%}
+            <li style="color: red;">
+                {{error}}
+            </li>
+            {%endfor%}
+        </ul>
+        {%endif%}    
+{%endmacro%} 
+
