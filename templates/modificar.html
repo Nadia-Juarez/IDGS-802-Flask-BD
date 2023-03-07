@@ -5,7 +5,8 @@
     <div class="col-xs-6">
         {%from "_macro.html" import render_field%}
   
-            <form action="" name="sent" method="POST">
+            <form action="/modificar" name="sent" method="POST">
+                
                 <div class="row control-group">
                 <div class="form-group col-xs-12 float-label-form-group controls"></div>
                  {{render_field(form.nombre,class="form-control")}}
@@ -22,7 +23,8 @@
             </div>
     </div>
             <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
-            <input type="submit" id="reg-alum" name="registo" value="Registrar"/>
+            <input type="submit" class="btn btn-danger" id="modificar" name="modificar" value="Modificar"/>
+            <a href="ABCompleto" class="btn btn-succes"><i class="icon-action-undo icon-white"></i>Cancelar</a>
         </form>
         </div>
        </div>
