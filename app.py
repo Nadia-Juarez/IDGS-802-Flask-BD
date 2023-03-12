@@ -63,13 +63,13 @@ def eliminar():
     if request.method=="POST":
         id=update_form.id.data
         alum=db.session.query(Alumnos).filter(Alumnos.id==id).first()
-        alum.nombre=update_form.nombre
-        alum.apellidos=update_form.apellidos
-        alum.email=update_form.email
+        alum.nombre=update_form.nombre.data
+        alum.apellidos=update_form.apellidos.data
+        alum.email=update_form.email.data
 
         db.session.delete(alum)
         db.session.commit()
-        return redirect(url_for("ABCCompleto"))
+        return redirect(url_for("ABCompleto"))
     return render_template('eliminar.html', form = update_form)
 
 @app.route('/ABCompleto', methods=['GET','POST'])
