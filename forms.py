@@ -5,6 +5,6 @@ from wtforms import validators
 
 class UserForm(Form):
     id=IntegerField("Id")
-    nombre=StringField("Nombre")
+    nombre=StringField("nombre")
     apellidos=StringField("Apellidos")
     email=EmailField("Correo")
